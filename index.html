@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reconhecimento de Expressões Faciais - IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="hero">
+    <h1>Reconhecimento de Expressões Faciais</h1>
+    <p class="sub-title">Projeto Prático de Inteligência Artificial & Data Science</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Seção 1: Relevância do Problema -->
+    <section class="card">
+      <h2>1. Relevância e Objetivo do Problema</h2>
+      <p>
+        O diagnóstico rápido e preciso através do reconhecimento de expressões faciais desempenha um papel fundamental no apoio à saúde mental e na interação homem-máquina. A automação da classificação destas imagens reduz a sobrecarga de análise manual e permite identificar padrões emocionais em tempo real.
+      </p>
+    </section>
+
+    <!-- Seção 2: Resultados da EDA (Análise de Balanceamento) -->
+    <section class="card">
+      <h2>2. Análise Exploratória de Dados (EDA)</h2>
+      <p>Visualização e métricas da base de dados utilizada no treino:</p>
+      
+      <!-- Indicadores numéricos -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>Total de Amostras</h3>
+          <span class="number">28.821</span>
+        </div>
+        <div class="metric-card">
+          <h3>Total de Classes</h3>
+          <span class="number">7</span>
+        </div>
+        <div class="metric-card">
+          <h3>Classe Dominante</h3>
+          <span class="number">Happy (24,8%)</span>
+        </div>
+      </div>
+
+      <!-- Gráfico da EDA -->
+      <div class="chart-container">
+        <h3>Distribuição e Balanceamento das Classes</h3>
+        <img src="grafico.png" alt="Gráfico de Balanceamento das Classes" class="chart-img">
+        <p class="insight">
+          <strong>Insight da EDA:</strong> A base apresenta um desbalanceamento acentuado, especialmente na classe <em>disgust</em> (apenas 1,5% do total). Na próxima etapa, aplicaremos técnicas de <i>Data Augmentation</i> e pesos de classe para corrigir este impacto.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção 3: Protótipo de Interação com o Modelo (Futura Etapa 2) -->
+    <section class="card upload-section">
+      <h2>3. Protótipo da Aplicação (Testar Modelo)</h2>
+      <p>Área reservada para o utilizador submeter uma imagem e obter a classificação de expressão facial na Etapa 2.</p>
+      
+      <div class="drop-zone" id="dropZone">
+        <p>Arraste uma imagem de um rosto aqui ou clique para selecionar</p>
+        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        <button class="btn-upload" onclick="document.getElementById('imageInput').click()">Selecionar Imagem</button>
+      </div>
+
+      <!-- Pré-visualização da imagem submetida -->
+      <div id="previewContainer" class="preview-container" style="display: none;">
+        <h3>Imagem Selecionada:</h3>
+        <img id="imagePreview" src="" alt="Pré-visualização">
+        <div id="resultBox" class="result-box">
+          <p><em>Integração com o Modelo de IA em desenvolvimento para a Etapa 2.</em></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Projeto desenvolvido por Giovana, Marcos e Camila &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

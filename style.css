@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.hero {
+  background: linear-gradient(135deg, #4b1248, #f0c27b);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  color: #4b1248;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.metric-card {
+  background: #f8f9fa;
+  border-left: 4px solid #4b1248;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.metric-card h3 {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.metric-card .number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4b1248;
+}
+
+.chart-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.chart-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.insight {
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.drop-zone {
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  background: #fafafa;
+  margin-top: 15px;
+}
+
+.btn-upload {
+  background-color: #4b1248;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.btn-upload:hover {
+  background-color: #6a1b64;
+}
+
+.preview-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.preview-container img {
+  max-width: 200px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.result-box {
+  background: #e2e3e5;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 0.9rem;
+}
