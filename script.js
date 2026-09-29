@@ -1,37 +1,65 @@
-// Lógica para mostrar a imagem selecionada na tela (Protótipo do Front)
+// elementos usados no upload e na pré-visualização
 const imageInput = document.getElementById('imageInput');
 const previewContainer = document.getElementById('previewContainer');
 const imagePreview = document.getElementById('imagePreview');
-
-imageInput.addEventListener('change', function(event) {
-  const file = event.target.files[0];
-  
-  if (file) {
-    const reader = new FileReader();
-    
-    reader.onload = function(e) {
-      imagePreview.src = e.target.result;
-      previewContainer.style.display = 'block';
-    }
-    
-    reader.readAsDataURL(file);
-  }
-});
-// permite arrastar e soltar uma imagem na área de upload
 const dropZone = document.getElementById('dropZone');
+const removeImage = document.getElementById('removeImage');
 
+
+// valida o tipo do arquivo
+function validarImagem(file) {
+    if (!file.type.startsWith('image/')) {
+        alert('Por favor, selecione apenas arquivos de imagem.');
+        return false;
+    }
+
+    return true;
+}
+
+
+// seleção de imagem pelo botão
+imageInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+
+    if (file && validarImagem(file)) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            imagePreview.src = e.target.result;
+            previewContainer.style.display = 'block';
+        };
+
+        reader.readAsDataURL(file);
+    } else if (file) {
+        imageInput.value = '';
+    }
+});
+
+
+// permite arrastar arquivos sobre a área de upload
 dropZone.addEventListener('dragover', function(event) {
     event.preventDefault();
 });
-// quando o usuário solta a imagem, o arquivo é lido e exibido na pré-visualização
+
+
+// destaque visual durante o arraste
+dropZone.addEventListener('dragenter', function () {
+    dropZone.classList.add('drag-active');
+});
+
+dropZone.addEventListener('dragleave', function () {
+    dropZone.classList.remove('drag-active');
+});
+
+
+// recebe a imagem arrastada
 dropZone.addEventListener('drop', function(event) {
     event.preventDefault();
-
-dropZone.classList.remove('drag-active');    
+    dropZone.classList.remove('drag-active');
 
     const file = event.dataTransfer.files[0];
 
-    if (file) {
+    if (file && validarImagem(file)) {
         const reader = new FileReader();
 
         reader.onload = function(e) {
@@ -42,20 +70,11 @@ dropZone.classList.remove('drag-active');
         reader.readAsDataURL(file);
     }
 });
-// remove a imagem selecionada e limpa a área de pré-visualização
-const removeImage = document.getElementById('removeImage');
 
+
+// remove a imagem selecionada
 removeImage.addEventListener('click', function () {
     imageInput.value = '';
     imagePreview.src = '';
     previewContainer.style.display = 'none';
-});
-
-// destaca a área enquanto o usuário arrasta uma imagem sobre ela
-dropZone.addEventListener('dragenter', function () {
-    dropZone.classList.add('drag-active');
-});
-
-dropZone.addEventListener('dragleave', function () {
-    dropZone.classList.remove('drag-active');
 });
