@@ -140,3 +140,32 @@ footer {
   color: #777;
   font-size: 0.9rem;
 }
+
+/* feedback visual quando uma imagem está sendo arrastada */
+.drop-zone.drag-active {
+    border-color: #4f46e5;
+    background-color: #eef2ff;
+    transform: scale(1.01);
+}
+
+/* transição suave da área de upload */
+.drop-zone {
+    transition: 0.2s ease;
+}
+
+/* botão para remover a imagem selecionada */
+#removeImage {
+    margin-top: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* efeito ao passar o mouse */
+#removeImage:hover {
+    opacity: 0.75;
+}
